@@ -62,6 +62,10 @@ closes, whichever comes first. Responsible disclosure is not a formality — for
 security engineer it's the actual job, and publishing a working exploit against
 software people are running today is the opposite of it.
 
+The disclosures and the open-source security contributions that came out of these
+assessments — including a `SECURITY.md` policy PR to a project that had no private
+reporting channel — are tracked in **[contributions.md](contributions.md)**.
+
 ---
 
 ## Why the non-findings matter
