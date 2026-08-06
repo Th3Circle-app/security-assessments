@@ -54,6 +54,7 @@ people's code instead of my own.
 | 001 | self-hosted notification service *(name withheld — disclosure in progress)* | SSRF · CWE-918 | **Confirmed, fixed, verified** | Low-priv user drives server-side requests to internal / cloud-metadata addresses. Fix written and verified; target name and working repro withheld until the maintainer has patched. → [findings/001-ssrf-notification-service.md](findings/001-ssrf-notification-service.md) |
 | 002 | single-user reminder app | SSRF (alleged) | **Not a vulnerability** | Fetches user URLs with no guard — but single-user, so there is no trust boundary to cross. Documented so I don't "find" it again. → [findings/002-single-user-no-boundary.md](findings/002-single-user-no-boundary.md) |
 | 003 | self-hosted uptime monitor | Blind SSRF (alleged) | **Not a defensible finding** | Fetching arbitrary URLs is the product's entire function, the response is never returned to the caller (blind), and the action is gated behind an explicit manage-monitors permission. → [findings/003-by-design-and-gated.md](findings/003-by-design-and-gated.md) |
+| 004 | self-hosted RSS reader | SSRF checked | **No finding — defended correctly** | Same profile as 001 (multi-user, server fetches user URLs) but every fetch routes through one guard that blocks private/metadata ranges *and pins the connection to the vetted DNS result* — closing the rebinding gap 001 leaves open. The positive control. → [findings/004-defended-correctly.md](findings/004-defended-correctly.md) |
 
 Confirmed findings stay redacted here until they're fixed or the disclosure window
 closes, whichever comes first. Responsible disclosure is not a formality — for a
@@ -64,7 +65,7 @@ software people are running today is the opposite of it.
 
 ## Why the non-findings matter
 
-Two of the three entries above are "no." That ratio is the honest one, and it's the
+Three of the four entries above are "no." That ratio is the honest one, and it's the
 part I'd want a hiring manager to read.
 
 - **002** looks textbook-exploitable — user-supplied URL, server fetches it, zero
@@ -77,8 +78,15 @@ part I'd want a hiring manager to read.
   monitor at all. Reporting that as a bug would waste a maintainer's time and mark
   me as someone who pattern-matches instead of thinks.
 
+- **004** has the *exact* profile that made 001 real — multi-user app, server fetches
+  user-supplied URLs — but every fetch path goes through one guard that blocks
+  internal ranges and pins the connection to the already-validated IP, closing even
+  the DNS-rebinding case. No finding, and I can name precisely why the control is
+  complete. Recognizing a correct fix is the same skill as finding its absence.
+
 Knowing when *not* to file is what separates a signal from noise. A finder who
-reports 002 and 003 is a finder a maintainer learns to ignore.
+reports 002 and 003 is a finder a maintainer learns to ignore — and one who can't
+recognize 004's guard as complete is a finder who files bypasses that don't exist.
 
 ---
 
