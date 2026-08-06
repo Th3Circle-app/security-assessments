@@ -3,9 +3,10 @@
 **Class:** CWE-918 Server-Side Request Forgery
 **Verdict:** Confirmed · reproduced · fixed · fix verified
 **Severity (proposed):** Medium–High (authenticated; High on cloud hosts via metadata)
-**Disclosure:** Reported privately to the maintainer. Target name and working
-reproduction are withheld from this public repo until a fix ships or the disclosure
-window closes.
+**Disclosure:** Reported privately to the maintainer via a private channel. Target
+name and working reproduction are withheld from this public repo until a fix ships or
+the disclosure window closes — at which point this entry is un-redacted with the full
+writeup and repro.
 
 > **Why this entry is redacted.** The finding is real and verified, but the software
 > is running in production for other people right now. Publishing a working
