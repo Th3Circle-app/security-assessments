@@ -10,7 +10,7 @@ real disclosures, dated.
 | Date | Project | Contribution | Status |
 |------|---------|--------------|--------|
 | 2026-08-05 | [AlexSciFier/neonlink](https://github.com/AlexSciFier/neonlink) (~400★) | Added a `SECURITY.md` disclosure policy so vulnerabilities can be reported through a private channel — [PR #126](https://github.com/AlexSciFier/neonlink/pull/126) | Open |
-| 2026-08-05 | [magiccode1412/magicpush](https://github.com/magiccode1412/magicpush) (~130★) | Added a `SECURITY.md` disclosure policy | Preparing |
+| 2026-08-05 | [magiccode1412/magicpush](https://github.com/magiccode1412/magicpush) (~130★) | Added a `SECURITY.md` disclosure policy — [PR #33](https://github.com/magiccode1412/magicpush/pull/33) | Open |
 
 Every policy PR here was opened on a project I had actually assessed — not sprayed
 across unrelated repos. A disclosure policy is only worth adding where there's a real
